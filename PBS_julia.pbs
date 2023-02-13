@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -P DCOM
+#PBS -l select=1:ncpus=16:mem=96GB
+#PBS -l walltime=24:00:00
+#PBS -o ./jobs/PBS_julia.o
+#PBS -j oe
+#PBS -M bhar9988@uni.sydney.edu.au
+#PBS -m ae
+
+cd $PBS_O_WORKDIR
+echo $PBS_O_WORKDIR
+
+# Custom compiled libraries required for julia packages to build properly
+export PATH="$HOME/build/glib/usr/bin:$HOME/build/glib/bin:$PATH"
+export MANPATH="$HOME/build/glib/usr/share/man:$MANPATH"
+export LD_LIBRARY_PATH="$HOME/build/glib/usr/lib:$HOME/build/glib/usr/lib64:$LD_LIBRARY_PATH"
+
+echo $LD_LIBRARY_PATH
+
+julia -t auto --project=$HOME/code/AllenAttention.jl/ $HOME/code/AllenAttention.jl/test/Neuropixels/Cluster/detectpairedbursts.jl 2>&1 | tee ./jobs/${PBS_JOBID}.log

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd $PBS_O_WORKDIR
+echo $PBS_O_WORKDIR
+
+# Custom compiled libraries required for julia packages to build properly
+export PATH="$HOME/build/glib/usr/bin:$HOME/build/glib/bin:$PATH"
+export MANPATH="$HOME/build/glib/usr/share/man:$MANPATH"
+export LD_LIBRARY_PATH="$HOME/build/glib/usr/lib:$HOME/build/glib/usr/lib64:$LD_LIBRARY_PATH"
+
+echo $LD_LIBRARY_PATH
+
+julia -t auto --project=$HOME/code/AllenAttention.jl/ xxxFILExxx 2>&1 | tee $HOME/jobs/${PBS_JOBID}.log
