@@ -1,0 +1,14 @@
+#!/bin/bash
+user="bhar9988"
+logtag=".pbsserver"
+regexstr="[0-9]+(?=${logtag})"
+if [ -z "$1" ]; then
+  jobid=$(qstat | grep 'bhar9988' | grep -P ${regexstr} -o)
+else
+  jobid=$1
+fi
+logdir=$HOME/jobs/
+logext=".log"
+logfile="$HOME/jobs/${jobid}${logtag}${logext}"
+echo "Monitoring $HOME/jobs/${jobid}${logtag}${logext}"
+tail -f $logfile
