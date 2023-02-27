@@ -18,3 +18,4 @@ export LD_LIBRARY_PATH="$HOME/build/glib/usr/lib:$HOME/build/glib/usr/lib64:$LD_
 echo $LD_LIBRARY_PATH
 
 julia -t auto --project=$HOME/code/AllenAttention.jl/ $HOME/code/AllenAttention.jl/test/Neuropixels/Cluster/detectpairedbursts.jl 2>&1 | tee ./jobs/${PBS_JOBID}.log
+

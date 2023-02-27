@@ -16,4 +16,5 @@ export MANPATH="$HOME/build/glib/usr/share/man:$MANPATH"
 export LD_LIBRARY_PATH="$HOME/build/glib/usr/lib:$HOME/build/glib/usr/lib64:$LD_LIBRARY_PATH"
 
 sleep infinity
+# Now ssh into the job's node, find it with qstat -u bhar9988 -n1
 

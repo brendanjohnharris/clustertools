@@ -1,0 +1,2 @@
+#! /bin/bash
+sshpass -p "<<passwd>>" ssh -o StrictHostKeyChecking=no -X bhar9988@hpc.sydney.edu.au "sshpass -p "<<passwd>>" ssh -o StrictHostKeyChecking=no -X bhar9988@hpc183"
