@@ -47,7 +47,7 @@ This will spit the jobid back at you, or else an error.
 #PBS -P DCOM                          # The name of the project recorded with Artemis, DCOM for me
 #PBS -l select=1:ncpus=16:mem=48GB    # Start the job using 16 cores from 1 machine with 48 GB of memory
 #PBS -l walltime=24:00:00             # Let the job run for at most 24 hours
-#PBS -o ./jobs/PBS_interactive.o           # The path to the output file, writing stdout once the job has finished
+#PBS -o ./jobs/PBS_interactive.o      # The path to the output file, writing stdout once the job has finished
 #PBS -j oe                            # An option to merge stdout with error messages
 #PBS -M bhar9988@uni.sydney.edu.au    # An email to notify once the job has completed
 #PBS -m ae                            # An option to send an email when the job is either aborted or terminates
