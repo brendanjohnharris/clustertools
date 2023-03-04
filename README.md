@@ -28,6 +28,13 @@ chmod u+x ~/clustertools/* # Make files in the repo executable
 cp ~/clustertools/.bashrc ~/.bashrc # Probably back up your .bashrc first
 source ~/.bashrc
 ```
+So far we shouldn't require github authentication, but if you end up cloning a private repo you will need to do so with:
+```bash
+git config --global credential.helper cache
+git push https://brendanjohnharris:<githubtoken>@github.com/brendanjohnharris/clustertools
+```
+where <githubtoken> is a github personal access token. It will be cached on the cluster, so future gitwork won't require a password.
+
 ## Submitting jobs
 Most jobs are submitted using PBS scrips. You can submit the test job included in this repo with:
 ```bash
