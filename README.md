@@ -173,7 +173,6 @@ ssh <node name, such as hpc183>
 You will be asked to enter a password twice: once to log in to headnode, once to log in to the job node. All going well, you will also have X forwarding: test it by running `xterm`.
 
 
-
 ### tmux is a beautiful thing
 If you ssh into a supercharged interactive job, then exit, the current terminal session is killed. This means you can't leave a script running without having a local terminal open.
 Unless...
