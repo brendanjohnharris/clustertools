@@ -1,8 +1,8 @@
 #!/bin/bash
 #PBS -P DCOM
-#PBS -l select=1:ncpus=32:mem=64GB
-#PBS -l walltime=12:00:00
-#PBS -o ./jobs/PBS_interactive.o
+#PBS -l select=1:ncpus=32:mem=48GB
+#PBS -l walltime=24:00:00
+#PBS -o ./PBS_interactive.o
 #PBS -j oe
 #PBS -M bhar9988@uni.sydney.edu.au                                                  
 #PBS -m ae  

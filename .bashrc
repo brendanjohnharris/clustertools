@@ -24,6 +24,7 @@ module load tmux
 module load ffmpeg/4.3.1
 module load zlib/1.2.11
 module load cuda/8.0.44
+module load matlab/R2019a
 #module load jupyter/base
 
 export PATH="$HOME/clustertools/:$HOME/build/glib/usr/bin:$HOME/build/glib/bin:$PATH"
@@ -35,3 +36,5 @@ export LD_LIBRARY_PATH="$HOME/build/glib/usr/lib:$HOME/build/glib/usr/lib64:$LD_
 
 # $HOME/build/fish/bin/fish # DONT DO THIS. BREAKS SFTP
 
+
+test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
