@@ -33,7 +33,7 @@ So far we shouldn't require github authentication, but if you end up cloning a p
 git config --global credential.helper cache
 git push https://brendanjohnharris:<githubtoken>@github.com/brendanjohnharris/clustertools
 ```
-where <githubtoken> is a github personal access token. It will be cached on the cluster, so future gitwork won't require a password.
+where `<githubtoken>` is a github personal access token. It will be cached on the cluster, so future gitwork won't require a password.
 
 ## Submitting jobs
 Most jobs are submitted using PBS scrips. You can submit the test job included in this repo with:
