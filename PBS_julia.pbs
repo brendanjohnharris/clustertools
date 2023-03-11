@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -P DCOM
-#PBS -l select=1:ncpus=16:mem=96GB
+#PBS -l select=1:ncpus=32:mem=96GB
 #PBS -l walltime=24:00:00
 #PBS -o ./jobs/PBS_julia.o
 #PBS -j oe
