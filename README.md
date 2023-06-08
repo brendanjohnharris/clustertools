@@ -82,7 +82,7 @@ sleep infinity
 ## Monitoring jobs
 To get a list of your currently running jobs, and jobs in the queue, use:
 ```bash
-qstat -u bhar9988qstat -u bhar9988 -n1
+qstat -u bhar9988 -n1
 ```
 The `-u` flag specifies a user, and `-n1` specifies we want the name of the node each job is running on printed on the same line as the job.
 To see the output of a specific command in job whilst it is running, you redirect the output of the command with:
