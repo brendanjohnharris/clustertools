@@ -1,8 +1,8 @@
 #!/bin/bash
 #PBS -P DCOM
-#PBS -V
-#PBS -l select=1:ncpus=16:mem=96GB
-#PBS -l walltime=6:00:00
+#PBS -q defaultQ
+#PBS -l select=1:host=hpc055:ncpus=16:mem=96GB
+#PBS -l walltime=23:59:59
 #PBS -o ./PBS_interactive.o
 #PBS -j oe
 #PBS -M bhar9988@uni.sydney.edu.au                                                  
