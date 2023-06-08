@@ -172,6 +172,15 @@ Host hpc* !hpc.sydney.edu.au
 	ForwardX11 yes
 	ForwardX11Trusted yes
 ```
+If the remote supports gateway, like the physics cluster, you can use:
+```
+Host headnode.physics.usyd.edu.au
+	HostName headnode.physics.usyd.edu.au
+	ForwardAgent yes
+	ForwardX11Trusted Yes
+	ProxyJump bhar9988@gateway.physics.usyd.edu.au
+	User bhar9988
+```
 
 Now you should be able to, in a local terminal, go:
 ```bash
@@ -179,6 +188,8 @@ ssh <node name, such as hpc183>
 ```
 You will be asked to enter a password twice: once to log in to headnode, once to log in to the job node. All going well, you will also have X forwarding: test it by running `xterm`.
 
+## VSCode SSH
+It's possible and a great idea, to set up vscode via ssh on the physics cluster. The commands for this are self-explanatory (`ctrl + p : add remote host` in vscode), but make sure you have set up ssh key pairs for passwordless login between your local machine and headnode, your local machine and physics, and gateway and headnode.
 
 ### tmux is a beautiful thing
 If you ssh into a supercharged interactive job, then exit, the current terminal session is killed. This means you can't leave a script running without having a local terminal open.
@@ -196,6 +207,16 @@ Some useful shortcuts are:
 - `ctrl+b [`: step out of the current terminal control so you can e.g. scroll. Step back in to the terminal with `q`
 - `ctrl+b s`: see a list of tmux sessions, and switch between them
 
+# Internet in jobs
+
+If you cannot access internet inside a job, add the following lines to your .cshrc (or equivalent lines for bash) to set up a socks5 proxy that forwards *most* internet traffic through an ssh connection with headnode (where, presumable, you have internet access):
+```
+if(`hostname`:q =~ node*) then
+	ssh -D 8080 -f -C -q -N bhar9988@headnode
+	setenv http_proxy "socks5h://0:8080"
+	setenv https_proxy "socks5h://0:8080"
+endif
+```
 
 # Display forwarding
 It's possible to have applications forward their display output to the local machine, but it's finicky.
